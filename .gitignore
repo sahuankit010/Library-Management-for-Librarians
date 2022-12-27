@@ -1,0 +1,5 @@
+.DS_Store
+--pycache__
+.cpython
+.pycache__
+.cpython-310.pyc
