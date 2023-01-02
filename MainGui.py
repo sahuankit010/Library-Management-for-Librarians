@@ -12,11 +12,9 @@ from tkinter.ttk import Treeview
 from CheckIn import CheckIn
 from PayFines import PayFines
 from BorrowingPerson import BorrowingPerson
-
-
 from main import *
-cnx = mysql.connector.connect(**{'user': 'root', 'password': '', 'host': 'localhost', 'db': 'library_db'})
 
+cnx = mysql.connector.connect(**{'user': 'root', 'password': '', 'host': 'localhost', 'db': 'library_db'})
 
 class MainGui:
     def __init__(self, master):
@@ -106,7 +104,7 @@ class MainGui:
     def change_day(self):
         global todays_date
         todays_date = date.today()
-        print(todays_date)
+        print("Ankit", todays_date)
 
     def search(self):
         self.search_string = self.SearchTextBox.get()
@@ -191,7 +189,6 @@ class MainGui:
         result = cursor.fetchall()
         flag = False
         for record in result:
-            print(todays_date)
             date_in = record[1]
             date_due = record[2]
             
@@ -220,3 +217,6 @@ class MainGui:
         self.newBorrowerWindow = Toplevel(self.parent)
         self.newBorrowerWindow.title("Adding a new Borrower")
         self.newapp = BorrowingPerson(self.newBorrowerWindow)
+
+    # def  change_day(self):
+    #     print("Ankit" + todays_date)

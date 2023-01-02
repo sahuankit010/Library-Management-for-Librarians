@@ -5,9 +5,9 @@ Date : Nov 20 2022
 
 import mysql.connector
 from mysql.connector import errorcode
-from datetime import date, timedelta
+from datetime import date
 from tkinter import *
-from tkinter import simpledialog, messagebox
+from tkinter import messagebox
 from tkinter.ttk import Treeview
 
 from main import *

@@ -1,20 +1,18 @@
-
+CREATE TABLE `book` (
+  `ISBN` varchar(13) NOT NULL DEFAULT '0',
+  `ISBN10` varchar(13) DEFAULT '0',
+  `title` varchar(250),
+  `cover` varchar(60),
+  `publisher` varchar(60),
+  `page` int default '0',
+  PRIMARY KEY (`ISBN`)
+);
 
 CREATE TABLE `authors` (
   `author_id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(150) NOT NULL DEFAULT 'UName',
   PRIMARY KEY (`author_id`)
 ) ;
-
-CREATE TABLE `book` (
-  `ISBN` varchar(13) NOT NULL DEFAULT '0',
-  `ISBN10` varchar(13) DEFAULT '0',
-   `title` varchar(250),
-   `cover` varchar(60),
-   `publisher` varchar(60),
-   `page` int default '0',
-  PRIMARY KEY (`ISBN`)
-);
 
 CREATE TABLE `book_author` (
   `isbn` varchar(13) NOT NULL DEFAULT '0',
@@ -54,6 +52,8 @@ CREATE TABLE `fines` (
   `Loan_Id` int(10) NOT NULL,
   `Fine_Amt` decimal(10,2) NOT NULL DEFAULT '0.00',
   `Paid` varchar(3) DEFAULT 'No',
-  PRIMARY KEY (`Loan_Id`)
+  -- PRIMARY KEY (`Loan_Id`),
+  KEY `fk111_idx` (`Loan_Id`),
+  CONSTRAINT `fk111` FOREIGN KEY (`Loan_Id`) REFERENCES `book_loans` (`LoanID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ;
 
